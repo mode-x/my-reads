@@ -5,8 +5,6 @@ import Home from "./Home";
 import Search from "./Search";
 
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-
   return (
     <div className="app">
       <Routes>
