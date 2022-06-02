@@ -1,7 +1,8 @@
 import "./App.css";
 import { Link } from "react-router-dom";
+import Books from "./Books";
 
-const Search = () => {
+const Search = ({ searchedBooks, search }) => {
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -9,11 +10,19 @@ const Search = () => {
           Close
         </Link>
         <div className="search-books-input-wrapper">
-          <input type="text" placeholder="Search by title, author, or ISBN" />
+          <input
+            type="text"
+            placeholder="Search by title, author, or ISBN"
+            onChange={(e) => {
+              search(e);
+            }}
+          />
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid"></ol>
+        <ol className="books-grid">
+          <Books books={searchedBooks} />
+        </ol>
       </div>
     </div>
   );

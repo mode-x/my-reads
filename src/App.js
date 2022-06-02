@@ -7,9 +7,33 @@ import Search from "./Search";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks] = useState([]);
 
   const fetchBooks = async () => {
     setBooks(await BooksAPI.getAll());
+  };
+
+  const search = (e) => {
+    const value = e.target.value;
+    setSearchedBooks([]);
+    if (value.length > 0) {
+      const searchBooks = async () => {
+        const data = await BooksAPI.search(value, 20);
+
+        if (!data.error) {
+          data.forEach((item) => {
+            const [matchedBook] = books.filter((book) => book.id === item.id);
+            if (matchedBook) {
+              item.shelf = matchedBook.shelf;
+            } else {
+              item.shelf = "none";
+            }
+          });
+          setSearchedBooks(data);
+        }
+      };
+      searchBooks();
+    }
   };
 
   useEffect(() => {
@@ -22,7 +46,11 @@ function App() {
         <Route>
           <Route exact path="/" element={<Home books={books} />} />
         </Route>
-        <Route exact path="/search" element={<Search />} />
+        <Route
+          exact
+          path="/search"
+          element={<Search searchedBooks={searchedBooks} search={search} />}
+        />
       </Routes>
     </div>
   );
