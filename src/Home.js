@@ -2,7 +2,7 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import BookShelves from "./BookShelves";
 
-const Home = ({ books, changeShelf }) => {
+const Home = ({ books, resetSearch, changeShelf }) => {
   const shelves = [
     { id: "currentlyReading", name: "Currently Reading" },
     { id: "wantToRead", name: "Want to Read" },
@@ -22,7 +22,9 @@ const Home = ({ books, changeShelf }) => {
         />
       </div>
       <div className="open-search">
-        <Link to="/search">Add a book</Link>
+        <Link to="/search" onClick={resetSearch}>
+          Add a book
+        </Link>
       </div>
     </div>
   );

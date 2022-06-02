@@ -14,6 +14,10 @@ function App() {
     setBooks(await BooksAPI.getAll());
   };
 
+  const resetSearch = () => {
+    setSearchedBooks([]);
+  };
+
   const search = (e) => {
     const value = e.target.value;
     setSearchedBooks([]);
@@ -57,7 +61,13 @@ function App() {
           <Route
             exact
             path="/"
-            element={<Home books={books} changeShelf={changeShelf} />}
+            element={
+              <Home
+                books={books}
+                resetSearch={resetSearch}
+                changeShelf={changeShelf}
+              />
+            }
           />
         </Route>
         <Route
