@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Home from "./Home";
+import Search from "./Search";
 
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
@@ -8,25 +9,10 @@ function App() {
   return (
     <div className="app">
       {showSearchPage ? (
-        <div className="search-books">
-          <div className="search-books-bar">
-            <a
-              className="close-search"
-              onClick={() => setShowSearchpage(!showSearchPage)}
-            >
-              Close
-            </a>
-            <div className="search-books-input-wrapper">
-              <input
-                type="text"
-                placeholder="Search by title, author, or ISBN"
-              />
-            </div>
-          </div>
-          <div className="search-books-results">
-            <ol className="books-grid"></ol>
-          </div>
-        </div>
+        <Search
+          setShowSearchpage={setShowSearchpage}
+          showSearchPage={showSearchPage}
+        />
       ) : (
         <Home
           setShowSearchpage={setShowSearchpage}
