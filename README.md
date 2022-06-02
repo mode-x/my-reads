@@ -62,9 +62,10 @@ The provided file [`BooksAPI.js`](src/server/BooksAPI.js) contains the methods y
 Method Signature:
 
 ```js
-get();
+get(bookId);
 ```
 
+- bookId: `<String>` requested book `id`
 - Returns a Promise which resolves to a JSON object containing a book object.
 
 ### `getAll`
