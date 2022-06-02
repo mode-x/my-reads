@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { get } from "./BooksAPI";
+import { get } from "../server/BooksAPI";
 
 const BookInfo = () => {
   const { state } = useLocation();
