@@ -13,16 +13,7 @@ function App() {
         <Route>
           <Route exact path="/" element={<Home />} />
         </Route>
-        <Route
-          exact
-          path="/search"
-          element={
-            <Search
-              setShowSearchpage={setShowSearchpage}
-              showSearchPage={showSearchPage}
-            />
-          }
-        />
+        <Route exact path="/search" element={<Search />} />
       </Routes>
     </div>
   );
