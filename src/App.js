@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
 import Home from "./Home";
 import Search from "./Search";
+import BookInfo from "./BookInfo";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -70,6 +71,7 @@ function App() {
             />
           }
         />
+        <Route exact path="/book_info" element={<BookInfo />} />
       </Routes>
     </div>
   );

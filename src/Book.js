@@ -1,12 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Book = ({ book, shelf, changeShelf }) => {
+  let navigate = useNavigate();
+
   const [selectedShelf, setSelectedShelf] = useState(shelf);
 
   const handleChange = (e) => {
     const value = e.target.value;
     changeShelf(book, value);
     setSelectedShelf(value);
+  };
+
+  const showInfo = () => {
+    navigate("/book_info/", { state: { bookId: book.id } });
   };
   return (
     <li>
@@ -22,7 +29,7 @@ const Book = ({ book, shelf, changeShelf }) => {
               })`,
             }}
           ></div>
-          <div className="book-shelf-info"></div>
+          <div className="book-shelf-info" onClick={showInfo}></div>
           <div className="book-shelf-changer">
             <select value={selectedShelf} onChange={handleChange}>
               <option value="moveTo" disabled>
