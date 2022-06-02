@@ -11,16 +11,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route>
-          <Route
-            exact
-            path="/"
-            element={
-              <Home
-                setShowSearchpage={setShowSearchpage}
-                showSearchPage={showSearchPage}
-              />
-            }
-          />
+          <Route exact path="/" element={<Home />} />
         </Route>
         <Route
           exact
