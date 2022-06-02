@@ -164,6 +164,21 @@ body,
   cursor: pointer;
 }
 
+.book-shelf-info {
+  position: absolute;
+  right: 45px;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1197df;
+  background-image: url("./icons/info.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 /* book cover */
 
 .book-cover {

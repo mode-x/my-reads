@@ -22,6 +22,7 @@ const Book = ({ book, shelf, changeShelf }) => {
               })`,
             }}
           ></div>
+          <div className="book-shelf-info"></div>
           <div className="book-shelf-changer">
             <select value={selectedShelf} onChange={handleChange}>
               <option value="moveTo" disabled>
