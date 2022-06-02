@@ -2,7 +2,7 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import Books from "./Books";
 
-const Search = ({ searchedBooks, search }) => {
+const Search = ({ searchedBooks, search, changeShelf }) => {
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -21,7 +21,7 @@ const Search = ({ searchedBooks, search }) => {
       </div>
       <div className="search-books-results">
         <ol className="books-grid">
-          <Books books={searchedBooks} />
+          <Books books={searchedBooks} changeShelf={changeShelf} />
         </ol>
       </div>
     </div>

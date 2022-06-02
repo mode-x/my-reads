@@ -36,6 +36,15 @@ function App() {
     }
   };
 
+  const changeShelf = (book, shelf) => {
+    const updateBook = async () => {
+      await BooksAPI.update(book, shelf);
+
+      fetchBooks();
+    };
+    updateBook();
+  };
+
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -44,12 +53,22 @@ function App() {
     <div className="app">
       <Routes>
         <Route>
-          <Route exact path="/" element={<Home books={books} />} />
+          <Route
+            exact
+            path="/"
+            element={<Home books={books} changeShelf={changeShelf} />}
+          />
         </Route>
         <Route
           exact
           path="/search"
-          element={<Search searchedBooks={searchedBooks} search={search} />}
+          element={
+            <Search
+              searchedBooks={searchedBooks}
+              search={search}
+              changeShelf={changeShelf}
+            />
+          }
         />
       </Routes>
     </div>

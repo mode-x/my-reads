@@ -2,7 +2,7 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import Books from "./Books";
 
-const Home = ({ books }) => {
+const Home = ({ books, changeShelf }) => {
   const shelves = [
     { id: "currentlyReading", name: "Currently Reading" },
     { id: "wantToRead", name: "Want to Read" },
@@ -21,7 +21,7 @@ const Home = ({ books }) => {
           <div className="bookshelf" key={shelf.id}>
             <h2 className="bookshelf-title">{shelf.name}</h2>
             <div className="bookshelf-books">
-              <Books books={booksInShelf(shelf.id)} />
+              <Books books={booksInShelf(shelf.id)} changeShelf={changeShelf} />
             </div>
           </div>
         ))}

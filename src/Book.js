@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-const Book = ({ book, shelf }) => {
+const Book = ({ book, shelf, changeShelf }) => {
   const [selectedShelf, setSelectedShelf] = useState(shelf);
 
   const handleChange = (e) => {
     const value = e.target.value;
-    selectedShelf(value);
+    changeShelf(book, value);
+    setSelectedShelf(value);
   };
   return (
     <li>
