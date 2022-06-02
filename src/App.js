@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Search from "./Search";
 
@@ -8,17 +9,30 @@ function App() {
 
   return (
     <div className="app">
-      {showSearchPage ? (
-        <Search
-          setShowSearchpage={setShowSearchpage}
-          showSearchPage={showSearchPage}
+      <Routes>
+        <Route>
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                setShowSearchpage={setShowSearchpage}
+                showSearchPage={showSearchPage}
+              />
+            }
+          />
+        </Route>
+        <Route
+          exact
+          path="/search"
+          element={
+            <Search
+              setShowSearchpage={setShowSearchpage}
+              showSearchPage={showSearchPage}
+            />
+          }
         />
-      ) : (
-        <Home
-          setShowSearchpage={setShowSearchpage}
-          showSearchPage={showSearchPage}
-        />
-      )}
+      </Routes>
     </div>
   );
 }
