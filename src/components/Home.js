@@ -1,6 +1,7 @@
 import "../css/App.css";
 import { Link } from "react-router-dom";
 import BookShelves from "./BookShelves";
+import PropTypes from "prop-types";
 
 const Home = ({ books, resetSearch, changeShelf }) => {
   const shelves = [
@@ -28,6 +29,12 @@ const Home = ({ books, resetSearch, changeShelf }) => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  books: PropTypes.array,
+  resetSearch: PropTypes.func,
+  changeShelf: PropTypes.func,
 };
 
 export default Home;

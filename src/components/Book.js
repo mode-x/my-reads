@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Book = ({ book, shelf, changeShelf }) => {
   let navigate = useNavigate();
@@ -49,6 +50,12 @@ const Book = ({ book, shelf, changeShelf }) => {
       </div>
     </li>
   );
+};
+
+Book.propTypes = {
+  book: PropTypes.object,
+  shelf: PropTypes.string,
+  changeShelf: PropTypes.func,
 };
 
 export default Book;

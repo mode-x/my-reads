@@ -1,4 +1,5 @@
 import BookShelf from "./BookShelf";
+import PropTypes from "prop-types";
 
 const BookShelves = ({ shelves, books, changeShelf }) => {
   const booksInShelf = (shelf) => {
@@ -16,6 +17,12 @@ const BookShelves = ({ shelves, books, changeShelf }) => {
       ))}
     </div>
   );
+};
+
+BookShelves.propTypes = {
+  shelves: PropTypes.array,
+  books: PropTypes.array,
+  changeShelf: PropTypes.func,
 };
 
 export default BookShelves;

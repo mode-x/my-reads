@@ -1,6 +1,7 @@
 import "../css/App.css";
 import { Link } from "react-router-dom";
 import Books from "./Books";
+import PropTypes from "prop-types";
 
 const Search = ({ searchedBooks, search, changeShelf }) => {
   return (
@@ -26,6 +27,12 @@ const Search = ({ searchedBooks, search, changeShelf }) => {
       </div>
     </div>
   );
+};
+
+Search.propTypes = {
+  searchedBooks: PropTypes.array,
+  search: PropTypes.func,
+  changeShelf: PropTypes.func,
 };
 
 export default Search;
